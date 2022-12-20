@@ -347,6 +347,31 @@ struct Obj : public Tank::Obj {
 	                                 // _30C = PelletView
 };
 
+struct Mgr : public Tank::Mgr {
+	Mgr(int objLimit, u8 modelType);
+
+	// virtual ~Mgr();                                     // _58 (weak)
+	virtual void createObj(int);                       // _A0
+	virtual EnemyBase* getEnemy(int idx);              // _A4
+	virtual void doAlloc();                            // _A8
+	virtual void loadTexData();                        // _D0
+	virtual EnemyTypeID::EEnemyTypeID getEnemyTypeID() // _AC (weak)
+	{
+		return EnemyTypeID::EnemyID_Wtank;
+	}
+	virtual ResTIMG* getChangeTexture() // _E0 (weak)
+	{
+		return m_changeTexture;
+	}
+
+	// _00 		= VTBL
+	// _00-_44	= EnemyMgrBase
+	ResTIMG* m_changeTexture; // _44, probably
+	Obj* m_obj;               // _48, array of Objs, probably
+};
+
+
+}
 namespace Gtank {
 struct Obj : public Tank::Obj {
 	Obj();
@@ -387,7 +412,7 @@ struct Mgr : public Tank::Mgr {
 	virtual void loadTexData();                        // _D0
 	virtual EnemyTypeID::EEnemyTypeID getEnemyTypeID() // _AC (weak)
 	{
-		return EnemyTypeID::EnemyID_Wtank;
+		return EnemyTypeID::EnemyID_Gtank;
 	}
 	virtual ResTIMG* getChangeTexture() // _E0 (weak)
 	{
@@ -399,7 +424,8 @@ struct Mgr : public Tank::Mgr {
 	ResTIMG* m_changeTexture; // _44, probably
 	Obj* m_obj;               // _48, array of Objs, probably
 };
-} // namespace Wtank
+} // namespace Gtank
+
 } // namespace Game
 
 #endif
