@@ -15,7 +15,7 @@ static const char tankMgrName[] = "246-TankMgr";
 Mgr::Mgr(int objLimit, u8 modelType)
     : EnemyMgrBase(objLimit, modelType)
 {
-	m_name = "ƒuƒ^ƒhƒbƒNƒŠƒ}ƒl[ƒWƒƒ"; // pig dog manager
+	m_name = "ï¿½uï¿½^ï¿½hï¿½bï¿½Nï¿½ï¿½ï¿½}ï¿½lï¿½[ï¿½Wï¿½ï¿½"; // pig dog manager
 }
 
 /*
@@ -25,7 +25,7 @@ Mgr::Mgr(int objLimit, u8 modelType)
  */
 void Mgr::loadModelData()
 {
-	int ids[2] = { EnemyTypeID::EnemyID_Tank, EnemyTypeID::EnemyID_Wtank };
+	int ids[3] = { EnemyTypeID::EnemyID_Tank, EnemyTypeID::EnemyID_Wtank, EnemyTypeID::EnemyID_Gtank };
 
 	for (int i = 0; i < 2; i++) {
 		EnemyMgrBase* mgr = generalEnemyMgr->getEnemyMgr(ids[i]);
@@ -49,8 +49,8 @@ void Mgr::loadModelData()
  */
 void Mgr::loadAnimData()
 {
-	int ids[2] = { EnemyTypeID::EnemyID_Tank, EnemyTypeID::EnemyID_Wtank };
-
+	int ids[3] = { EnemyTypeID::EnemyID_Tank, EnemyTypeID::EnemyID_Wtank, EnemyTypeID::EnemyID_Gtank };
+	
 	for (int i = 0; i < 2; i++) {
 		EnemyMgrBase* mgr = generalEnemyMgr->getEnemyMgr(ids[i]);
 		if (mgr) {
