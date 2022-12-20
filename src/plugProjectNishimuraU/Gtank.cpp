@@ -1,7 +1,7 @@
 #include "Game/Entities/Tank.h"
 
 namespace Game {
-namespace GTank {
+namespace Gtank {
 
 /*
  * --INFO--
