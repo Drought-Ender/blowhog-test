@@ -369,9 +369,8 @@ struct Mgr : public Tank::Mgr {
 	ResTIMG* m_changeTexture; // _44, probably
 	Obj* m_obj;               // _48, array of Objs, probably
 };
-
-
 }
+
 namespace Gtank {
 struct Obj : public Tank::Obj {
 	Obj();
