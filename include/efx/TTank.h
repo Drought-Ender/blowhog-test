@@ -193,6 +193,73 @@ struct TWtankEffect {
 	TTankWatYodare m_efxWatYodare; // _8C
 };
 
+struct TTankGasHit : public TOneEmitterSimple {
+	TTankGasHit()
+	    : TOneEmitterSimple(PID_TankWatHit)
+	{
+	}
+
+	virtual ~TTankGasHit() { } // _3C (weak)
+
+	// _00      = VTBL
+	// _00-_18  = TOneEmitterSimple
+};
+
+struct TTankGasYodare : public TChaseMtx {
+	TTankGasYodare(Mtx mtx)
+	    : TChaseMtx(PID_TankWatYodare, (Matrixf*)mtx)
+	{
+	}
+
+	virtual ~TTankGasYodare() { } // _48 (weak)
+
+	// _00      = VTBL
+	// _00-_14  = TChaseMtx
+};
+
+struct TTankGas : public TChaseMtx4 {
+	inline TTankGas(Mtx mtx)
+	    : TChaseMtx4(mtx, PID_TankWat_1, PID_TankWat_2, PID_TankWat_3, PID_TankWat_4)
+	{
+	}
+
+	virtual bool create(Arg*); // _08
+	virtual void forceKill();  // _0C (weak)
+	virtual void fade()        // _10 (weak)
+	{
+		TChaseMtx4::fade();
+		if (m_particleCallBack.m_efxHit) {
+			m_particleCallBack.m_efxHit->fade();
+		}
+	}
+	virtual void startDemoDrawOff() // _14 (weak)
+	{
+		TChaseMtx4::startDemoDrawOff();
+		m_efxHit.startDemoDrawOff();
+	}
+	virtual void endDemoDrawOn() // _18 (weak)
+	{
+		TChaseMtx4::endDemoDrawOn();
+		m_efxHit.endDemoDrawOn();
+	}
+
+	// _00      = VTBL
+	// _00-_54  = TChaseMtx4
+	TParticleCallBack_TankFire m_particleCallBack; // _54
+	TTankGasHit m_efxHit;                          // _60
+};
+
+struct TGtankEffect {
+	inline TWtankEffect(Mtx mtx)
+	    : m_efxGas(mtx)
+	    , m_efxGasYodare(mtx)
+	{
+	}
+
+	TTankGas m_efxGas;             // _00
+	TTankGasYodare m_efxGasYodare; // _8C
+};
+
 } // namespace efx
 
 #endif
