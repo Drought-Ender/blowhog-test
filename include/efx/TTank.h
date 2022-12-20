@@ -250,7 +250,7 @@ struct TTankGas : public TChaseMtx4 {
 };
 
 struct TGtankEffect {
-	inline TWtankEffect(Mtx mtx)
+	inline TGtankEffect(Mtx mtx)
 	    : m_efxGas(mtx)
 	    , m_efxGasYodare(mtx)
 	{
