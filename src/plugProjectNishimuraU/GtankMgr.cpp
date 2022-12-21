@@ -17,8 +17,7 @@ static const char* cTankChangeTexName = "/enemy/data/Gtank/mizu_butadokkuri_main
 Mgr::Mgr(int objLimit, u8 modelType)
     : Tank::Mgr(objLimit, modelType)
 {
-	JUT_PANIC("GTank Loaded");
-	m_name = "�~�Y�u�^�h�b�N���}�l�[�W��"; // water pig dog manager
+	m_name = "gtankMgr"; // water pig dog manager
 }
 
 /*
