@@ -269,7 +269,7 @@ createEnemyMgr__Q24Game15GeneralEnemyMgrFUcii:
 /* 8010BD90 00108CD0  7F 64 DB 78 */	mr r4, r27
 /* 8010BD94 00108CD4  48 31 75 C9 */	bl heapStatusStart__6SystemFPcP7JKRHeap
 cmplwi r29, 0x66
-bne gTankMiss
+bne .gTankMiss
 /* 8010C178 001090B8  38 60 00 4C */	li r3, 0x4c
 /* 8010C17C 001090BC  4B F1 7D 29 */	bl __nw__FUl
 /* 8010C180 001090C0  7C 60 1B 79 */	or. r0, r3, r3
