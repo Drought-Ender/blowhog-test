@@ -278,7 +278,8 @@ bne .gTankMiss
 /* 8010C18C 001090CC  7F C5 F3 78 */	mr r5, r30
 /* 8010C190 001090D0  48 17 02 7D */	bl __ct__Q34Game5Gtank3MgrFiUc
 /* 8010C194 001090D4  7C 60 1B 78 */	mr r0, r3
-
+mr r26, r0
+b .L_8010CC34
 .gTankMiss:
 /* 8010BD98 00108CD8  28 1D 00 64 */	cmplwi r29, 0x64
 /* 8010BD9C 00108CDC  41 81 0E 98 */	bgt .L_8010CC34
