@@ -1,6 +1,7 @@
 #include "Game/Entities/Tank.h"
 #include "Game/generalEnemyMgr.h"
 #include "JSystem/JUT/JUTNameTab.h"
+#include "JSystem/JUT/JUTExceptionh"
 
 namespace Game {
 namespace Tank {
@@ -15,7 +16,7 @@ static const char tankMgrName[] = "246-TankMgr";
 Mgr::Mgr(int objLimit, u8 modelType)
     : EnemyMgrBase(objLimit, modelType)
 {
-	m_name = "�u�^�h�b�N���}�l�[�W��"; // pig dog manager
+	m_name = "tankMgr"; // pig dog manager
 }
 
 /*
@@ -34,6 +35,9 @@ void Mgr::loadModelData()
 
 			if (storedModelData) {
 				m_modelData = storedModelData;
+				if (i == 2) {
+					JUT_PANIC("Found ModelData of Gtank");
+				}
 				return;
 			}
 		}
