@@ -143,7 +143,7 @@ __vt__Q23efx8TTankWat:
 	.4byte fade__Q23efx8TTankWatFv
 	.4byte startDemoDrawOff__Q23efx8TTankWatFv
 	.4byte endDemoDrawOn__Q23efx8TTankWatFv
-	.global __vt__Q23efx8TTankWat
+.global __vt__Q23efx8TTankGas
 __vt__Q23efx8TTankGas:
 	.4byte 0
 	.4byte 0
