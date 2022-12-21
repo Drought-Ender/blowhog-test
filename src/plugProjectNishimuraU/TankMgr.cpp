@@ -1,7 +1,7 @@
 #include "Game/Entities/Tank.h"
 #include "Game/generalEnemyMgr.h"
 #include "JSystem/JUT/JUTNameTab.h"
-#include "JSystem/JUT/JUTExceptionh"
+#include "JSystem/JUT/JUTException.h"
 
 namespace Game {
 namespace Tank {
